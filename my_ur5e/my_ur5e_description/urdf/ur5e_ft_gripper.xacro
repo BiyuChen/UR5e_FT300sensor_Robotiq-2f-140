@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur5e_robot">
+
+  <xacro:include filename="$(find my_ur5e_description)/urdf/inc/ur5e_macro.xacro"/>
+  <xacro:include filename="$(find robotiq_ft_sensor)/urdf/robotiq_ft300.urdf.xacro"/>
+  <xacro:include filename="$(find robotiq_2f_140_gripper_visualization)/urdf/robotiq_arg2f_140.xacro"/>
+  <xacro:ur5e_robot prefix="" />
+
+
+  <xacro:robotiq_ft300 prefix="" parent="tool0" >
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:robotiq_ft300>
+
+
+ <joint name="ft_gripper_joint" type="fixed">
+	<parent link="robotiq_ft_frame_id"/>
+	<child link="robotiq_arg2f_base_link"/>
+	<origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+</robot>
